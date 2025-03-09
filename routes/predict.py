@@ -68,7 +68,7 @@ def predict_cost():
         past_data = data.get("past_data", [])
         months_ahead = int(data.get("months_ahead", 1))
 
-        if len(past_data) < 3:
+        if len(past_data) < 2:
             return jsonify({"error": "At least 3 months of data is required."}), 400
 
         df = pd.DataFrame(past_data)
@@ -91,7 +91,7 @@ def predict_consumption():
         past_data = data.get("past_data", [])
         months_ahead = int(data.get("months_ahead", 1))
 
-        if len(past_data) < 3:
+        if len(past_data) < 2:
             return jsonify({"error": "At least 3 months of data is required."}), 400
 
         df = pd.DataFrame(past_data)
